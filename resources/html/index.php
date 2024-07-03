@@ -1,3 +1,7 @@
+<?php
+  require_once "../../View/";
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="relative w-full h-full">
 <head>
@@ -12,7 +16,7 @@
 
 <body class="relative flex flex-col justify-between w-full h-full">
   <!-- nav bar -->
-<nav x-data="{ open: false }"  class="flex justify-between w-auto h-auto bg-white rounded-lg shadow-lg md:h-16">
+<nav x-data="{ open: false }"  class="flex justify-between w-auto h-auto py-2 bg-white rounded-lg shadow-lg md:h-16">
   <div class="flex justify-between w-full ">
       <div class="flex items-center w-1/2 px-6 text-2xl font-semibold md:w-1/5 md:px-1 md:flex md:items-center md:justify-center"
       x-transition:enter="transition ease-out duration-300" id="nav-bar-logo">
