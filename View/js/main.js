@@ -7,10 +7,22 @@ const signupFrom = document.getElementById("signup-form");
 const loginBtn = [...document.getElementsByClassName("login-button")];
 const loginFrom = document.getElementById("login-form");
 const cancelBtns = [...document.getElementsByClassName("cancel-button")];
+const navbarProfileList = document.getElementById("navbar-profile-list");
+const navbarProfileSec = document.getElementById("navbar-profile-sec");
+
+const switchForms = () => {
+  toggleSignupForm();
+  toggleLoginForm();
+};
 
 const toggleLoginForm = () => {
   loginFrom.classList.toggle("flex");
   loginFrom.classList.toggle("hidden");
+};
+
+const showNavProfileList = () => {
+  navbarProfileList.classList.toggle("hidden");
+  navbarProfileList.classList.toggle("flex");
 };
 
 const toggleSignupForm = () => {
@@ -18,7 +30,7 @@ const toggleSignupForm = () => {
   signupFrom.classList.toggle("hidden");
 };
 
-const toggleLists = () => {
+const toggleNavList = () => {
   navBarLogo.classList.toggle("hidden");
   navBarLogo.classList.toggle("flex");
 
@@ -38,4 +50,10 @@ cancelBtns.forEach((el) => {
   el.addEventListener("click", () => {
     loginFrom.classList.contains("hidden") ? showSignupForm() : showLoginForm();
   });
+});
+
+document.addEventListener("click", (e) => {
+  if(!navbarProfileSec.contains(e.target) ){
+    navbarProfileList.classList.replace("flex", "hidden");
+  };
 });

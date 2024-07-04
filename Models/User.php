@@ -1,7 +1,5 @@
 <?php
 
-require_once("./db-connection.php");
-
 function get_users(object $conn, array $columns = null, string $cond = null)
 {
 
@@ -13,8 +11,22 @@ function get_users(object $conn, array $columns = null, string $cond = null)
   };
 
   $result = mysqli_fetch_all(mysqli_query($conn, $query), MYSQLI_ASSOC);
-  return isset($result) ? $result : null; 
+  return isset($result) ? $result : false; 
 
+};
+
+function get_single_user(object $conn, array $columns = null, string $cond = null){
+  $cols = $columns ? implode(",", $columns) : "*";
+  $query = "SELECT " . $cols . " FROM users ";
+
+  if($cond){
+    $query .= conditions($cond);
+  };
+
+  $query .= "LIMIT 1;";
+
+  $result = mysqli_fetch_assoc(mysqli_query($conn, $query));
+  return isset($result) ? $result : false; 
 };
 
 function update_user(object $conn, array $params, string $cond)
@@ -41,6 +53,8 @@ function post_user(object $conn, string $first_name, string $last_name, string $
   $query = "INSERT INTO users (`first_name`, `last_name`, `gender`, `birth_date`, `username`, `email`, `pswrd`) 
   VALUES (?, ?, ?, ?, ?, ?, ?);";
 
+  $hashedPswrd = password_hash($pswrd, PASSWORD_BCRYPT, ['cost' => 12]);
+
   $parameters = [
     $first_name,
     $last_name,
@@ -48,7 +62,7 @@ function post_user(object $conn, string $first_name, string $last_name, string $
     date("Y-m-d", $birth_date),
     $username,
     $email,
-    $pswrd,
+    $hashedPswrd,
   ];
 
   return mysqli_stmt_execute(mysqli_prepare($conn, $query), $parameters);
