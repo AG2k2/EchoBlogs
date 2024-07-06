@@ -9,6 +9,7 @@ const loginFrom = document.getElementById("login-form");
 const cancelBtns = [...document.getElementsByClassName("cancel-button")];
 const navbarProfileList = document.getElementById("navbar-profile-list");
 const navbarProfileSec = document.getElementById("navbar-profile-sec");
+const deletionFrom = document.getElementById("deletion-form")
 
 const switchForms = () => {
   toggleSignupForm();
@@ -45,6 +46,11 @@ const toggleNavList = () => {
   btnLines[2].classList.toggle("-rotate-45");
   btnLines[2].classList.toggle("translate-y-1.5");
 };
+
+const showDeletionForm = () => {
+  deletionFrom.classList.toggle("hidden");
+  deletionFrom.classList.toggle("flex");
+}
 
 cancelBtns.forEach((el) => {
   el.addEventListener("click", () => {

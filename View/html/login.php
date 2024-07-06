@@ -22,7 +22,6 @@
   <link rel="stylesheet" href="../css/output.css">
   <script src="../js/main.js" defer></script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body class="relative flex flex-col justify-between w-full h-full">
@@ -34,16 +33,12 @@
           <a href="./">Echo<span class="text-purple-600">Blogs</span></a>
       </div>
 
-      <div  
-      x-transition:enter="transition ease-in-out duration-300"
-      class="flex-col hidden w-full h-auto md:hidden" id="nav-list-mobile">
-          <div class="flex flex-col items-center justify-center gap-2">
-              <a href="./" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">Home</a>
-              <a href="" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">About Us</a>
-              <a href="" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">Contact</a>
-              <button class="p-3 duration-75 bg-purple-600 rounded-xl hover:bg-purple-700" onclick="toggleSignupForm()">Sign Up</button>
-              <button onclick="toggleLoginForm()">Login</button>
-          </div>
+      <div class="flex-col hidden w-full h-auto md:hidden" id="nav-list-mobile">
+        <div class="flex flex-col items-center justify-center gap-2">
+          <a href="./" class="duration-75 hover:text-purple-600">Home</a>
+          <a href="" class="duration-75 hover:text-purple-600">About Us</a>
+          <a href="" class="duration-75 hover:text-purple-600">Contact</a>
+        </div>
       </div>
       <div class="items-center hidden w-3/5 font-semibold justify-evenly md:flex">
         <a href="./" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">Home</a>

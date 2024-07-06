@@ -30,10 +30,9 @@ function login_user(object $conn, string $input,  string $pswrd)
 {
   $cond = invalid_email($input) ? "username = '$input'" : "email = '$input'";
   $result = get_single_user($conn, null, $cond);
-  return $result;
   if (!$result) {
     return false;
   } else {
-    return password_verify($result["pswrd"], $pswrd) ? $result : false;
+    return password_verify($pswrd, $result["pswrd"]) ? $result : false;
   };
 };

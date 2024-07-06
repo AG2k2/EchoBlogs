@@ -40,13 +40,14 @@ require_once "../session.config.php";
 if ($errors) {
   $_SESSION["signup_errors"] = $errors;
 
-  // $_SESSION["pre_values"] = [
-  //   "first_name" => $first_name,
-  //   "last_name" => $last_name,
-  //   "username" => $username,
-  //   "email" => $email,
-  //   "birth_date" => $birth_date,
-  // ];
+  $_SESSION["pre_values"] = [
+    "first_name" => $first_name,
+    "last_name" => $last_name,
+    "username" => $username,
+    "email" => $email,
+    "birth_date" => $birth_date,
+    "gender" => $gender,
+  ];
 
   header("location: ../View/html/signup.php");
   die();
@@ -54,15 +55,7 @@ if ($errors) {
 
 register_user($connection, $first_name, $last_name, $gender, $username, $email, $birth_date, $pswrd);
 
-$_SESSION["user"] = [
-  "first_name" => $first_name,
-  "last_name" => $last_name,
-  "full_name" => $first_name . " " . $last_name,
-  "username" => $username,
-  "email" => $email,
-  "birth_date" => $birth_date,
-  "gender" => $gender,
-];
+set_user_session($connection, $username);
 
 close_connection($connection);
 

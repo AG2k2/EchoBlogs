@@ -63,3 +63,19 @@ function register_user(object $conn, string $fName, string $lName, string $gende
   return;
 
 };
+
+function set_user_session($conn, $username)
+{
+  $result = get_single_user($conn, null, "username = '$username'");
+  $_SESSION["user"] = [
+    "id" => $result["id"],
+    "first_name" => $result["first_name"],
+    "last_name" => $result["last_name"],
+    "full_name" => $result["first_name"] . " " . $result["last_name"],
+    "username" => $result["username"],
+    "email" => $result["email"],
+    "birth_date" => $result["birth_date"],
+    "gender" => $result["gender"],
+  ];
+  return;
+};

@@ -25,7 +25,6 @@ if (invalid_email($input) && invalid_username($input)) {
   };
 };
 
-
 require_once "../session.config.php";
 
 if($errors) {
@@ -34,6 +33,7 @@ if($errors) {
   die();
 } else {
   $_SESSION["user"] = [
+    "id" => $user["id"],
     "first_name" => $user["first_name"],
     "last_name" => $user["last_name"],
     "full_name" => $user["first_name"] . " " . $user["last_name"],
