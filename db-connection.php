@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$db_name = "echoblogs";
+$db_name = "echoarticle";
 $db_username = "root";
 $db_password = "";
 

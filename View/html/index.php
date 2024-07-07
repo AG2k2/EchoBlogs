@@ -18,7 +18,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoBlogs</title>
+  <title>EchoArticle</title>
   <link rel="stylesheet" href="../css/output.css">
   <script src="../js/main.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,7 +36,7 @@
 <header class="flex flex-col gap-5">
   
   <div class="flex flex-col-reverse md:flex-row md:items-center shadow-shadowAround"  style="background-image: url('../images/Purple Background HD.jpg');">
-    <?php if(isset($articles) && !isset($_GET["search_query"])): ?>
+    <?php if($articles && !isset($_GET["search_query"])): ?>
       <div class="relative flex flex-col items-start justify-center w-full h-full gap-5 px-10 py-6 bg-purple-950 bg-opacity-60">
         <h1 class="text-2xl font-semibold text-white">Latest article:</h1>
         <div class="flex flex-col w-full gap-2 md:order-2">
@@ -104,7 +104,7 @@
       </div>
     </div>
 
-    <?php if(isset($articles) && count($articles) > 3): ?>
+    <?php if($articles && count($articles) > 3): ?>
       <div class="relative items-center w-full px-5 mx-auto md:px-12 lg:px-24 max-w-7xl">
         <div class="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3">
           <?php for($i = 3; $i < count($articles); $i ++): ?>

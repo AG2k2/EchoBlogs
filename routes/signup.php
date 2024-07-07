@@ -10,8 +10,8 @@ require_once "../Models/User.php";
 require_once "../Controllers/signupController.php";
 
 $errors = [];
-$first_name = $_POST["first_name"];
-$last_name = $_POST["last_name"];
+$first_name = trim($_POST["first_name"]);
+$last_name = trim($_POST["last_name"]);
 $birth_date = $_POST["birth_date"];
 $gender = $_POST["gender"];
 $username = $_POST["username"];

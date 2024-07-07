@@ -15,7 +15,7 @@ function get_articles(object $conn, string $cond = null, string $order = "`creat
   FROM ($query) a
   INNER JOIN users u
   ON a.author_id = u.id
-  ORDER BY $order;";
+  ORDER BY a.$order;";
 
   $query .= ";";
 

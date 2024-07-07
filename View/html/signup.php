@@ -24,7 +24,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoBlogs</title>
+  <title>EchoArticle</title>
   <link rel="stylesheet" href="../css/output.css">
   <script src="../js/main.js" defer></script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -35,7 +35,7 @@
 <nav x-data="{ open: false }"  class="flex justify-between w-auto h-auto py-2 bg-white rounded-lg shadow-lg md:h-16">
   <div class="flex justify-between w-full ">
     <div class="flex items-center w-1/2 px-6 text-2xl font-semibold md:w-1/5 md:px-1 md:flex md:items-center md:justify-center" id="nav-bar-logo">
-        <a href="./">Echo<span class="text-purple-600">Blogs</span></a>
+        <a href="./">Echo<span class="text-purple-600">Article</span></a>
     </div>
 
     <div class="flex-col hidden w-full h-auto md:hidden" id="nav-list-mobile">
@@ -72,14 +72,14 @@
         <input type="text"
           name="first_name"
           placeholder="First Name:"
-          class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"
+          class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"required
           value="<?= isset($pres) ? $pres["first_name"] : ""; ?> " />
       </div>
       <div class="w-full text-lg duration-300 transform bg-transparent border-b-2 focus-within:border-purple-500">
         <input type="text"
           name="last_name"
           placeholder="Last Name:"
-          class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"
+          class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none" required
           value="<?= isset($pres) ? $pres["last_name"] : ""; ?>" />
       </div>
     </div>
@@ -88,7 +88,7 @@
       <input type="text"
         name="username"
         placeholder="Username:"
-        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"
+        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none" required
         value="<?= isset($pres) ? $pres["username"] : ""; ?>" />
     </div>
 
@@ -96,14 +96,14 @@
       <input type="email"
         name="email"
         placeholder="Email:"
-        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"
+        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none" required
         value="<?= isset($pres) ? $pres["email"] : ""; ?>" />
     </div>
 
     <div class="w-full text-lg duration-300 transform bg-transparent border-b-2 focus-within:border-purple-500">
       <input type="date"
         name="birth_date"
-        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"
+        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none" required
         value="<?= isset($pres) ? $pres["birth_date"] : ""; ?>" />
     </div>
 
@@ -122,14 +122,14 @@
       <input type="password"
         name="pswrd"
         placeholder="Password:"
-        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"/>
+        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none" required/>
     </div>
 
     <div class="w-full text-lg duration-300 transform bg-transparent border-b-2 focus-within:border-purple-500">
       <input type="password"
         name="confirm_pswrd"
         placeholder="Confirm password:"
-        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none"/>
+        class="w-full bg-transparent border-none outline-none placeholder:italic focus:outline-none" required/>
     </div>
 
     <button type="submit" class="py-2 font-bold duration-300 transform bg-purple-600 rounded-sm hover:bg-purple-400">

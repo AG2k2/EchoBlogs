@@ -2,12 +2,12 @@
   <div class="flex justify-between w-full ">
       <div class="flex items-center w-1/2 px-6 text-2xl font-semibold md:w-1/5 md:px-1 md:flex md:items-center md:justify-center"
       x-transition:enter="transition ease-out duration-300" id="nav-bar-logo">
-          <a href="/EchoBlogs/View/html/">Echo<span class="text-purple-600">Blogs</span></a>
+          <a href="/EchoArticle/View/html/">Echo<span class="text-purple-600">Article</span></a>
       </div>
 
       <div class="flex-col hidden w-full h-auto md:hidden animate-slideIn" id="nav-list-mobile">
         <div class="flex flex-col items-center justify-center gap-2">
-          <a href="/EchoBlogs/View/html/" class="duration-75 hover:text-purple-600">Home</a>
+          <a href="/EchoArticle/View/html/" class="duration-75 hover:text-purple-600">Home</a>
           <a href="" class="duration-75 hover:text-purple-600">About Us</a>
           <a href="" class="duration-75 hover:text-purple-600">Contact</a>
           <?php if(!isset($user)): ?>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="items-center hidden w-3/5 font-semibold justify-evenly md:flex">
-        <a href="/EchoBlogs/View/html/" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">Home</a>
+        <a href="/EchoArticle/View/html/" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">Home</a>
         <a href="" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">About Us</a>
         <a href="" class="duration-75 hover:text-purple-600 hover:border-b-2 hover:border-b-purple-600">Contact</a>
       </div>
@@ -59,7 +59,7 @@
               </li>
               <hr>
               <li>
-                <form action="/EchoBlogs/routes/logout.php" class="w-full" method="post">
+                <form action="/EchoArticle/routes/logout.php" class="w-full" method="post">
                   <button class="w-full px-2 py-1 duration-100 text-start hover:underline">Logout</button>
                 </form>
               </li>

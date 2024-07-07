@@ -100,6 +100,6 @@ function prepare_inputs($connection, $title, $category, $body, $newSlug, $errors
     $thumbnail = store_thumbnail($_FILES["thumbnail"]);
   };
 
-  return $thumbnail;
+  return $thumbnail ? $thumbnail : null;
 
 }
