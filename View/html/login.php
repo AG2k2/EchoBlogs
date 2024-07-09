@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="../css/output.css">
   <script src="../js/main.js" defer></script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="relative flex flex-col justify-between w-full h-full">

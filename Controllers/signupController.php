@@ -76,6 +76,7 @@ function set_user_session($conn, $username)
     "email" => $result["email"],
     "birth_date" => $result["birth_date"],
     "gender" => $result["gender"],
+    "pro_pic" => $result["pro_pic"],
   ];
   return;
 };

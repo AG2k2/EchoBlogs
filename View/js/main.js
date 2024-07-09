@@ -9,7 +9,8 @@ const loginFrom = document.getElementById("login-form");
 const cancelBtns = [...document.getElementsByClassName("cancel-button")];
 const navbarProfileList = document.getElementById("navbar-profile-list");
 const navbarProfileSec = document.getElementById("navbar-profile-sec");
-const deletionFrom = document.getElementById("deletion-form")
+const deletionFrom = document.getElementById("deletion-form");
+
 
 const switchForms = () => {
   toggleSignupForm();

@@ -5,8 +5,14 @@ require_once "../session.config.php";
 require_once "../Controllers/commentController.php";
 require_once "../Models/Comment.php";
 
-if($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_SESSION["user"]) || !isset($_POST["post_id"]) || !$_POST["body"]){
-  header("location: ../View/html/index.php");
+if($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_SESSION["user"])){
+  header("location: ../View/html/articles/index.php?slug=" . $_POST["slug"]);
+  die();
+};
+
+if (isset($_POST["comment_del"]) && $_POST["comment_del"] === "true"){
+  comment_deletion($connection, $_POST["comment_id"]);
+  header("location: ../View/html/articles/index.php?slug=" . $_POST["post_slug"]);
   die();
 };
 

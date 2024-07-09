@@ -41,6 +41,7 @@ if($errors) {
     "email" => $user["email"],
     "birth_date" => $user["birth_date"],
     "gender" => $user["gender"],
+    "pro_pic" => $user["pro_pic"],
   ];
   header("location: ../View/html/index.php");
 };

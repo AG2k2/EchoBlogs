@@ -24,7 +24,7 @@
               </button>
             </div>
             <div class="flex items-center w-full text-center">
-              <a href="" class="block w-full px-2 py-1 duration-100">Settings</a>
+              <a href="/EchoArticle/View/html/profiles/settings.php?username=<?= $user["username"] ?>" class="block w-full px-2 py-1 duration-100">Settings</a>
               <hr>
               <form action="../../routes/logout.php" class="w-full" method="post">
                 <button class="w-full px-2 py-1 text-center duration-100 hover:underline">Logout</button>
@@ -52,10 +52,7 @@
             </button>
             <ul class="absolute flex-col hidden w-full text-black bg-white border-2 rounded-md h-content" id="navbar-profile-list">
               <li>
-                <a href="" class="block w-full px-2 py-1 duration-100 hover:bg-purple-400 rounded-t-md">Profile</a>
-              </li>
-              <li>
-                <a href="" class="block w-full px-2 py-1 duration-100 hover:bg-purple-400">Settings</a>
+                <a href="/EchoArticle/View/html/profiles/settings.php?username=<?= $user["username"] ?>" class="block w-full px-2 py-1 duration-100 rounded-t-md hover:bg-purple-400">Settings</a>
               </li>
               <hr>
               <li>

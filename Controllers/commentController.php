@@ -11,3 +11,7 @@ function add_reply(object $conn, int $authorId, int $articleId, int $commentId ,
   return post_reply($conn, $authorId, $articleId, $commentId, $body);
 };
 
+function comment_deletion(object $conn, int $commentId)
+{
+  return delete_comment($conn, $commentId);
+}

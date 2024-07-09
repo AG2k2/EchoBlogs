@@ -3,7 +3,26 @@
     <img class="w-10 h-10 mt-2 rounded-full sm:w-12 sm:h-12" src="../../images/<?= $comment["author"]["pro_pic"] ?>" alt="author picture">
   </div>
   <div class="flex flex-col flex-1 px-4 py-2 leading-relaxed border rounded-lg bg-gray-50 sm:px-6 sm:py-4">
-    <strong><?= $comment["author"]["first_name"] . " " . $comment["author"]["last_name"] ?></strong> <span class="text-xs text-gray-400"><?= $comment["created_at"] ?></span>
+    <header class="flex items-center justify-between">
+      <div>
+        <h3 class="font-bold">
+          <?= $comment["author"]["first_name"] . " " . $comment["author"]["last_name"] ?>
+        </h3>
+        <time class="text-xs text-gray-400">
+          <?= $comment["created_at"] ?>
+        </time>
+      </div>
+      <?php if(isset($user) && $user["id"] === $comment["author"]["id"]): ?>
+        <div class="flex gap-3 text-sm font-semibold">
+          <form method="post" action="../../../routes/comments.php">
+            <input type="hidden" name="comment_del" value="true">
+            <input type="hidden" name="comment_id" value="<?= $comment["id"] ?>">
+            <input type="hidden" name="post_slug" value="<?= $currentArticle["slug"] ?>">
+            <button class="text-red-600" class="hover:underline">Delete</button>
+          </form>
+        </div>
+      <?php endif ?>
+    </header>
     <p class="p-3 text-sm">
       <?= $comment["body"] ?>
     </p>
@@ -36,8 +55,26 @@
               <img class="w-8 h-8 mt-3 rounded-full sm:w-10 sm:h-10" src="../../images/<?= $reply["author"]["pro_pic"] ?>" alt="profile picture" />
             </div>
             <div class="flex-1 px-4 py-2 leading-relaxed bg-gray-200 rounded-lg sm:px-6 sm:py-4">
-              <strong><?= $reply["author"]["first_name"] . " " . $reply["author"]["last_name"] ?></strong>
-              <span class="text-xs text-gray-400"><?= $reply["created_at"] ?></span>
+            <header class="flex items-center justify-between">
+              <div>
+                <h3 class="font-bold">
+                  <?= $reply["author"]["first_name"] . " " . $reply["author"]["last_name"] ?>
+                </h3>
+                <time class="text-xs text-gray-400">
+                  <?= $reply["created_at"] ?>
+                </time>
+              </div>
+              <?php if(isset($user) && $user["id"] === $reply["author"]["id"]): ?>
+                <div class="flex gap-3 text-sm font-semibold">
+                  <form method="post" action="../../../routes/comments.php">
+                    <input type="hidden" name="comment_del" value="true">
+                    <input type="hidden" name="comment_id" value="<?= $reply["id"] ?>">
+                    <input type="hidden" name="post_slug" value="<?= $currentArticle["slug"] ?>">
+                    <button class="text-red-800" class="hover:underline">Delete</button>
+                  </form>
+                </div>
+              <?php endif ?>
+            </header>
               <p class="p-2 text-xs sm:text-sm">
                 <?= $reply["body"] ?>
               </p>

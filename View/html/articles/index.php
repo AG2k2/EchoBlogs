@@ -26,6 +26,7 @@
   <title>EchoArticle</title>
   <link rel="stylesheet" href="../../css/output.css">
   <script src="../../js/main.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="relative flex flex-col justify-between w-full min-h-full">
@@ -49,15 +50,17 @@
     </div>
     <h1 class="text-4xl font-bold"><?= $currentArticle["title"] ?></h1>
     <div class="flex justify-between px-2 text-lg">
-        <a href="/EchoArticle/View/html/index.php?category=<?= $thumbnail["category"] ?>" class="block text-purple-900 duration-75 hover:underline"><?= $currentArticle["category"] ?></a>
+        <a href="/EchoArticle/View/html/index.php?category=<?= $currentArticle["category"] ?>" class="block text-purple-900 duration-75 hover:underline"><?= $currentArticle["category"] ?></a>
         <time class="block text-gray-500"><?= $currentArticle["created_at"] ?></time>
       </div>
     <?php if($currentArticle["thumbnail"] !== null): ?>
       <img src="../../images/thumbnails/<?= $currentArticle["thumbnail"] ?>" alt="article thumbnails" class="rounded-md">
     <?php endif ?>
-    <p class="text-xl indent-3">
-      <?= $currentArticle["body"] ?>
-    </p>
+    <article class="flex flex-col items-start gap-4 text-xl indent-3">
+      <p class="">
+        <?= $currentArticle["body"] ?>
+      </p>
+    </article>
   </div>
 
   <div class="hidden lg:flex flex-col lg:w-[35%] p-4">
@@ -139,9 +142,7 @@
 
 <?php require "../components/footer.php"; ?>
 
-<?php if(isset($_SESSION["flash"])):
-  require "../components/flash-messge.php";
-endif ?>
+<?php require "../components/flash-messge.php"; ?>
 
 </body>
 </html>

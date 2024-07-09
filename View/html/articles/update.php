@@ -5,12 +5,12 @@ require_once "../../../db-connection.php";
 require_once "../../../Models/Articles.php";
 require_once "../../../Controllers/articleController.php";
 
-if(!isset($_SESSION['user'])){
+if(!isset($_SESSION['user']) || !isset($_GET["slug"])){
   header("location: ../index.php"); 
   die();
 } else {
   $currentArticle = show_current_article($connection);
-  if($currentArticle["author"]["id"] !== $_SESSION["user"]["id"]){
+  if($currentArticle["author"]["id"] !== $_SESSION["user"]["id"] || !$currentArticle ){
     header("location: ../index.php"); 
     die();
   } else {
@@ -37,6 +37,7 @@ if(isset($_SESSION["pre_article_values"])){
   <title>EchoArticle</title>
   <link rel="stylesheet" href="../../css/output.css">
   <script src="../../js/main.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="relative flex flex-col justify-between w-full h-full">

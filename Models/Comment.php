@@ -26,11 +26,13 @@ function get_article_comments(object $conn, int $articleId, string $order = "`cr
   $replies = $replies_query ? $replies_query : null;
 
   for($i = 0; $i < count($result); $i++){
-    foreach($replies as $reply){
-      if($reply["comment_id"] == $result[$i]["id"]){
-        $result[$i]["replies"][] = $reply;
+    if($replies){
+      foreach($replies as $reply){
+        if($reply["comment_id"] == $result[$i]["id"]){
+          $result[$i]["replies"][] = $reply;
+        };
       };
-    };
+    }
     if(!isset($result[$i]["replies"])){
       $result[$i]["replies"] = null;
     };

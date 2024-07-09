@@ -30,6 +30,7 @@ if(isset($_SESSION["pre_article_values"])){
   <title>EchoArticle</title>
   <link rel="stylesheet" href="../../css/output.css">
   <script src="../../js/main.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="relative flex flex-col justify-between w-full h-full">

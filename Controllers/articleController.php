@@ -31,10 +31,10 @@ function show_articles(object $conn)
   
   $cond = null;
   
-  if(isset($_GET["slug"])){
-    $cond = "slug = '" . $_GET["slug"] . "'";
-  };
-  
+  if(isset($_GET["category"]) && $_GET["category"] !== ""){
+    $cond = "`category` LIKE '%" . $_GET["category"] . "%'";
+  }
+
   if(isset($_GET["search_query"]) && $_GET["search_query"] !== ""){
     $cond = "body LIKE '%" . $_GET["search_query"] . "%' or title LIKE '%" . $_GET["search_query"] . "%'";
   }
@@ -46,6 +46,7 @@ function show_articles(object $conn)
 
 function get_all_articles(object $conn)
 {
+
   return get_articles($conn);
 };
 
@@ -56,7 +57,13 @@ function show_current_article(object $conn)
     $slug = $_GET["slug"];
   };
 
-  return get_single_article($conn, "slug = '$slug'");
+  $result = get_single_article($conn, "slug = '$slug'");
+
+  if($result){
+    $result["body"] = prepare_body($result["body"]);
+  };
+
+  return $result;
 };
 
 
@@ -96,30 +103,10 @@ function updating(object $conn, bool $newSlug, array $params, int $id)
 
 function deletion(object $conn, int $authorId, string $pswrd, int $postId)
 {
-  var_dump(check_passowrd($conn, $authorId, $pswrd));
-  if(!check_passowrd($conn, $authorId, $pswrd)){
+  if(!check_password($conn, $authorId, $pswrd)){
     return false;
   };
   return delete_article($conn, $postId);
-};
-
-//=================== OTHER =====================
-
-function check_passowrd(object $conn, int $id, string $pswrd)
-{
-  $result = get_single_user($conn, null, "id = '$id'");
-  return password_verify($pswrd, $result["pswrd"]);
-};
-
-
-function random_str(int $len = 10)
-{
-  $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  $string = "";
-  for ($i=0; $i < $len; $i++) { 
-    $string .= $chars[random_int(0, strlen($chars) - 1)];
-  };
-  return $string;
 };
 
 function title_to_slug($title)
@@ -127,3 +114,9 @@ function title_to_slug($title)
   $slug = implode("-", explode(" ", $title));
   return $slug;
 };
+
+function prepare_body(string $body)
+{
+  $body = str_replace("\n", "</p><p>", $body);
+  return $body;
+}

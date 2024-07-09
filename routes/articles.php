@@ -1,6 +1,7 @@
 <?php
 
 require_once "../Controllers/articleController.php";
+require_once "../Controllers/userController.php";
 require_once "../Models/Articles.php";
 require_once "../db-connection.php";
 require_once "../session.config.php";
